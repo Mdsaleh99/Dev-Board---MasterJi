@@ -1,0 +1,17 @@
+services:
+    mongo-data:
+        image: mongo:8.0.9
+        container_name: mongo-data
+        ports:
+          - 27017:27017
+        volumes:
+          - mongodb-data:/data/db
+        networks:
+          - devboard-network
+
+
+volumes:
+  mongodb-data:
+
+networks:
+  devboard-network:
