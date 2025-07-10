@@ -25,3 +25,29 @@ export const createProject = asyncHandler(async (req, res) => {
     res.status(201).json(new ApiResponse(201, project, "project created successfully"))
 })
 
+export const getAllProjects = asyncHandler(async (req, res) => {
+    const userId = req.user._id
+    const allProjects = await Project.find({ createdBy: userId })
+    
+    if (!allProjects || allProjects.length === 0) {
+        throw new ApiError(404, "No projects found")
+    }
+
+    res.status(200).json(new ApiResponse(200, allProjects, "all projects fetched successfully"))
+})
+
+
+export const getProjectById = asyncHandler(async (req, res) => {
+    const { id } = req.params
+
+    if (!id) {
+        throw new ApiError(403, "id is required")
+    }
+
+    const project = await Project.findById(id)
+    if (!project) {
+        throw new ApiError(404, "project not found")
+    }
+
+    res.status(200).json(new ApiResponse(200, project, "project fetched successfully"))
+})

@@ -1,7 +1,7 @@
 import express from "express"
 import { generateApiKey, signin, signout, signup, verifyEmail } from "../controllers/user.controllers.js"
 import { authMiddleware } from "../middlewares/auth.middleware.js"
-import { validateApikey } from "../middlewares/apiKey.middleware.js"
+
 
 const router = express.Router()
 

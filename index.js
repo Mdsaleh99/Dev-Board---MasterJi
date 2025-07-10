@@ -2,9 +2,11 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { connectDB } from "./src/db/db.js";
+import cookieParser from "cookie-parser";
 
 // routes
 import userRouters from "./src/routes/user.routes.js"
+import projectRouters from "./src/routes/project.routes.js"
 
 dotenv.config();
 
@@ -13,6 +15,7 @@ const PORT = process.env.PORT || 8000;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser())
 app.use(
     cors({
         origin: process.env.FRONEND_URL,
@@ -23,6 +26,7 @@ app.use(
 );
 
 app.use("/api/v1/auth", userRouters);
+app.use("/api/v1/projects", projectRouters);
 
 
 app.get("/", (req, res) => {

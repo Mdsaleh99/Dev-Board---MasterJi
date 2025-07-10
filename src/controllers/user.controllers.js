@@ -107,6 +107,7 @@ export const signin = asyncHandler(async (req, res) => {
         role: user.role
     }, process.env.JWT_SECRET, { expiresIn: '24h' })
     
+
     res.status(201).cookie("token", token, cookieOptions).json(new ApiResponse(201, user, "user signin successfully"))
 })
 
