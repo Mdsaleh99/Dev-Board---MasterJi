@@ -7,6 +7,7 @@ import cookieParser from "cookie-parser";
 // routes
 import userRouters from "./src/routes/user.routes.js"
 import projectRouters from "./src/routes/project.routes.js"
+import taskRouters from "./src/routes/task.routes.js";
 
 dotenv.config();
 
@@ -27,6 +28,7 @@ app.use(
 
 app.use("/api/v1/auth", userRouters);
 app.use("/api/v1/projects", projectRouters);
+app.use("/api/v1/tasks", taskRouters);
 
 
 app.get("/", (req, res) => {
