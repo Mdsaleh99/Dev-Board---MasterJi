@@ -1,6 +1,3 @@
-# Creating a markdown version of the Dev-Board documentation in the style of the Campus Hub doc
-
-
 # 📋 Dev-Board – Backend API
 
 A production-ready RESTful backend for a **task management system** where users can manage **Projects** and **Tasks** using secure APIs. Built with **Express.js**, **JWT Authentication**, **API Key Protection**, and **modular architecture**.
